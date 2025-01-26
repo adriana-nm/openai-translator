@@ -19,8 +19,8 @@ export class LoginComponent {
 
   firestore: Firestore = inject(Firestore);
   auth: Auth = inject(Auth);
-  email: string = 'test@correotest.com';
-  password: string = 'N4N1_R0CK5';
+  email: string = '';
+  password: string = '';
 
   constructor(private router: Router) { }
 
@@ -28,7 +28,7 @@ export class LoginComponent {
     try {
       await signInWithEmailAndPassword(this.auth, this.email, this.password);
       const usersCollection = collection(this.firestore, 'users');
-      const userRef = doc(usersCollection, 'cdTrIl6D7FhVL95Z0DyvTvQQ8Rk2');
+      const userRef = doc(usersCollection, this.auth.currentUser?.uid);
       const userDoc = await getDoc(userRef);
       if (userDoc.exists()) {
         const userData: User = userDoc.data() as User;
@@ -38,7 +38,9 @@ export class LoginComponent {
         alert('User not found');
       }
     } catch (error) {
+      console.error(error);
       alert('User not found');
     }
   }
+  
 }

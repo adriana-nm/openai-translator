@@ -1,5 +1,14 @@
 {
+  "targets": {
+    "translator-954ab": {
+      "hosting": {
+        "prod": [
+          "translator-954ab"
+        ]
+      }
+    }
+  },
   "projects": {
-    "default": "translator-954ab"
+    "default": "translator"
   }
 }
