@@ -1,0 +1,9 @@
+<div class="login-wrapper">
+  <h1 class="login-title">Welcome Back</h1>
+  <p class="login-subtitle">Please log in to your account</p>
+  <form (ngSubmit)="login()" class="login-form">
+    <input [(ngModel)]="email" id="email" name="email" type="email" class="form-input" placeholder="Enter your email" required />
+    <input [(ngModel)]="password" id="password" name="password" type="password" class="form-input" placeholder="Enter your password" required />
+    <button type="submit" class="login-button" [disabled]="!email || !password">Login</button>
+  </form>
+</div>
