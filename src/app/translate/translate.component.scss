@@ -6,24 +6,32 @@
   background-color: #f5f5f5;
 }
 
-.container {
+.translate-container {
   background: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px; /* Adjust as needed */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 420px; /* Adjust as needed */
   text-align: center;
+  position: relative;
+}
+
+/* Company Logo */
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
 }
 
 textarea {
   width: 100%;
-  height: 150px;
+  height: 120px;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.5rem;
+  border-radius: 6px;
+  padding: 0.7rem;
   font-size: 1rem;
+  resize: none;
 }
 
 select {
@@ -32,26 +40,68 @@ select {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  background-color: white;
 }
 
 button {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.6rem;
   font-size: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.1s;
+}
 
-  &:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
-  &:hover:not(:disabled) {
-    background-color: #0056b3;
-  }
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+.copy-box {
+  margin-top: 16px;
+  position: relative;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.copy-box:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.copy-box .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.left-align {
+  display: flex;
 }

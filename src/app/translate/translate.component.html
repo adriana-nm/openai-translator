@@ -1,31 +1,47 @@
 <div class="translate-container">
+  <img src="razor_group.png" alt="Company Logo" class="logo">
   <h2>Language Translator</h2>
+
   <div class="language-select">
     <div>
-      <label for="from-language">From:</label>
+      <label for="from-language" class="left-align">From:</label>
       <select id="from-language" [(ngModel)]="fromLanguage">
         <option value="" disabled>Select a language</option>
         <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
         <option value="de">German</option>
+        <option value="fr">French</option>
+        <option value="it">Italian</option>
+        <option value="es">Spanish</option>
+        <option value="nl">Dutch</option>
+        <option value="pl">Polish</option>
+        <option value="sv">Swedish</option>
       </select>
     </div>
     <div>
-      <label for="to-language">To:</label>
+      <label for="to-language" class="left-align">To:</label>
       <select id="to-language" [(ngModel)]="toLanguage">
         <option value="" disabled>Select a language</option>
-        <option value="es">Spanish</option>
         <option value="en">English</option>
-        <option value="fr">French</option>
         <option value="de">German</option>
+        <option value="fr">French</option>
+        <option value="it">Italian</option>
+        <option value="es">Spanish</option>
+        <option value="nl">Dutch</option>
+        <option value="pl">Polish</option>
+        <option value="sv">Swedish</option>
       </select>
     </div>
   </div>
-  <label for="text">Text:</label>
+
+  <label for="text" class="left-align">Text:</label>
   <textarea id="text" [(ngModel)]="text" placeholder="Enter text to translate..."></textarea>
+
   <button id="translate-button" (click)="translate()" [disabled]="isTranslateDisabled()" [class.disabled]="isTranslateDisabled()">
     Translate
   </button>
-  <p *ngIf="translatedText">{{ translatedText }}</p>
+
+  <div *ngIf="translatedText" class="copy-box" (click)="copyToClipboard(translatedText)">
+    <p>{{ translatedText }}</p>
+    <span *ngIf="copied" class="tooltip">✅ Copied!</span>
+  </div>
 </div>
